@@ -92,11 +92,113 @@ volumes:
 ````
 
 ### Docker Cheat Sheet
+
+<h4>Help Commands</h4>
+
+list all docker commands related to image like push, pull, remove etc.
+````
+docker image --help
+````
+list all docker commands related to container like run, stop, kill list etc.
+````
+docker container --help
+````
+
+<h4>Container Specific</h4>
+
+start container and stream output from container on to the terminal.
+````
+docker start -a <container-id>
+````
+start container and map host port with container port using flag `-p`.
+It then pass environment varibale using `-e` flag.
+And finally name the container using flag `--name`.
+````
+docker container run -it -p <host-port>:<container-port> -e <key:value> <image-name> --name <container-name>
+````
+list all running containers.
+````
+docker ps
+````
+list all containers created ever from an machine.
+````
+docker ps --all
+````
+returns memory utilization, bandwidth, cpu usage and real time metrics.
+````
+docker container stats
+````
+execute another command inside a container.
+-i – lets user to input command.
+-t – to opt in for interactive terminal.
+````
+docker exec -it <container-id> <command>
+````
+allows user to enter into container and execute bash commands.
+````
+docker exec -it <container-id> sh
+docker exec -it <container-id> bash
+````
+print logs from the container.
+````
+docker logs <container-id>
+````
+stop container and do some clean up stuff.
+````
+docker stop <container-id>
+````
+stop container instantly.
+````
+docker kill <container-id>
+````
+list stopped containers.
+````
+docker container -a
+````
+
+<h4>Image Specific</h4>
+
+inspect Dockerfile from application root directory and build an image
+````
+docker build .
+````
+build image and add tag along with version to it.
+````
+docker build -t <tag-name>:<version>
+````
+returns information about image in json notation.
+````
+docker image inspect <tag-name>
+````
+run = create + start
+launch instance of an image.
 ````
 docker run <image-name>
 ````
-run = create + start
-<br>
-Command lets you to launch instance of an image.
+launch instance of an image and override the default command.
+````
+docker run <image-name> <command>
+````
+list all images in docker host.
+````
+docker image ls
+````
+remove image either by id or with corresponding tag name and version mapped.
+````
+docker image rm <image-id>
+docker image rm <tag-name>:<version>
+````
 
+<h4>Docker handle failover mechanism</h4>
 
+flag helps to automatically restart container if at all crash/failure happens.
+````
+--restart on-failure
+````
+
+<h4>Clean-up Command</h4>
+
+remove all stopped containers and dangling images.
+````
+docker system prune
+````
