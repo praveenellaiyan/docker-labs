@@ -222,6 +222,28 @@ Mount directory from host os on to container by adding flag below
 ````
 -v <directory-from-host-os>:<directory inside container>
 ````
+<h4>Network specific</h4>
+
+list down networks
+````
+docker network ls
+````
+display docker network information
+````
+docker network inspect bridge
+````
+display network details of an image
+````
+docker exec <image> ifconfig
+````
+create docker network
+````
+docker network create --driver bridge <network-name>
+````
+Map containers to docker network by using below flag
+````
+--net <network-name>
+````
 <h4>Docker compose specific</h4>
 
 run services that has build property and build images.
