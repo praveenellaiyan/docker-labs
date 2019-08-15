@@ -240,7 +240,7 @@ create docker network
 ````
 docker network create --driver bridge <network-name>
 ````
-Map containers to docker network by using below flag
+Link containers to docker network by using below flag
 ````
 --net <network-name>
 ````
@@ -273,6 +273,20 @@ docker-compose restart <service-name>
 remove all stopped containers which are launched using docker compose
 ````
 docker-compose rm
+````
+<h4>Push docker image to docker hub</h4>
+
+1. Login to docker hub using your credentials
+````
+docker login
+````
+2. Tag image with your docker username
+````
+docker image tag <image> <username>/<image>:<version>
+````
+3. Push in to docker hub
+````
+docker image push <username>/<image>:<version>
 ````
 
 <h4>Optimize docker image</h4>
