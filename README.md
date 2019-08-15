@@ -104,6 +104,30 @@ list all docker commands related to container like run, stop, kill list etc.
 docker container --help
 ````
 
+<h4>Image Specific</h4>
+
+inspect Dockerfile from application root directory and build an image
+````
+docker build .
+````
+build image and add tag along with version to it.
+````
+docker build -t <tag-name>:<version>
+````
+returns information about image in json notation.
+````
+docker image inspect <tag-name>
+````
+list all images in docker host.
+````
+docker image ls
+````
+remove image either by id or with corresponding tag name and version mapped.
+````
+docker image rm <image-id>
+docker image rm <tag-name>:<version>
+````
+
 <h4>Container Specific</h4>
 
 run = create + start
@@ -115,7 +139,6 @@ launch instance of an image and override the default command. The flag `-d` run 
 ````
 docker run <image-name> <command>
 ````
-
 start container and stream output from container on to the terminal.
 ````
 docker start -a <container-id>
@@ -166,30 +189,6 @@ list stopped containers.
 docker container -a
 ````
 
-<h4>Image Specific</h4>
-
-inspect Dockerfile from application root directory and build an image
-````
-docker build .
-````
-build image and add tag along with version to it.
-````
-docker build -t <tag-name>:<version>
-````
-returns information about image in json notation.
-````
-docker image inspect <tag-name>
-````
-list all images in docker host.
-````
-docker image ls
-````
-remove image either by id or with corresponding tag name and version mapped.
-````
-docker image rm <image-id>
-docker image rm <tag-name>:<version>
-````
-
 <h4>Volume Specific</h4>
 
 Create volume
@@ -214,8 +213,38 @@ Mount directory from host os on to container by adding flag below
 ````
 -v <directory-from-host-os>:<directory inside container>
 ````
+<h4>Docker compose specific</h4>
 
-<h4>Optimize docker image<h4>
+run services that has build property and build images.
+````
+docker-compose build
+````
+run services that has image property and pull image if not exist in cache.
+````
+docker-compose pull
+````
+start services mentioned in `docker-compose.yml`.
+````
+docker-compose up
+````
+All in one command that does pull an image, build an image and run it in container.
+````
+docker-compose up --build -d
+````
+restart all services
+````
+docker-compose restart
+````
+restart specific service from docker compose
+````
+docker-compose restart <service-name>
+````
+remove all stopped containers which are launched using docker compose
+````
+docker-compose rm
+````
+
+<h4>Optimize docker image</h4>
 
 It is vital to keep the image built least sufficient enough to launch application. In real time large scale application the impact of optimizing an image plays a cruial role.
 <br>`.dockerignore` file is pretty much similar to .gitignore file which contains pattern to exclude files which aren't required on build.
