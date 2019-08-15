@@ -176,6 +176,15 @@ print logs from the container.
 ````
 docker logs <container-id>
 ````
+run custom scripts when container starts
+````
+ENTRYPOINT ["<script-file-to-execute>"]
+````
+<h6>Contrast between ENTRYPOINT and CMD</h6>
+
+`CMD` lets pass param to entrypoint and also can be used to set default command to execute on container start. CMD containing bash commands were executed from `/bin/sh -c`
+<br>Whereas `ENTRYPOINT` allows to run script when container start. Default ENTRYPOINT is `/bin/sh -c`.
+
 stop container and do some clean up stuff.
 ````
 docker stop <container-id>
