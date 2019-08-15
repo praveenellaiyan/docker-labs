@@ -106,6 +106,16 @@ docker container --help
 
 <h4>Container Specific</h4>
 
+run = create + start
+launch instance of an image.
+````
+docker run <image-name> -d
+````
+launch instance of an image and override the default command. The flag `-d` run container in background.
+````
+docker run <image-name> <command>
+````
+
 start container and stream output from container on to the terminal.
 ````
 docker start -a <container-id>
@@ -170,15 +180,6 @@ returns information about image in json notation.
 ````
 docker image inspect <tag-name>
 ````
-run = create + start
-launch instance of an image.
-````
-docker run <image-name>
-````
-launch instance of an image and override the default command.
-````
-docker run <image-name> <command>
-````
 list all images in docker host.
 ````
 docker image ls
@@ -187,6 +188,31 @@ remove image either by id or with corresponding tag name and version mapped.
 ````
 docker image rm <image-id>
 docker image rm <tag-name>:<version>
+````
+
+<h4>Volume Specific</h4>
+
+Create volume
+````
+docker volume create <volume-name>
+````
+<h5>Sharing data between containers</h5>
+
+Map volume on to container by adding flag `-v`
+````
+-v <named-volume-name>:<directory name to restore data from>
+````
+Expose directory that contains data to other containers by below flag on running containers.
+````
+-v <expose-directory-path>
+````
+Get exposed data from containers using volumes by adding below flag
+````
+--volumes-from <container-name>
+````
+Mount directory from host os on to container by adding flag below
+````
+-v <directory-from-host-os>:<directory inside container>
 ````
 
 <h4>Docker handle failover mechanism</h4>
