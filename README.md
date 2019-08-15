@@ -215,6 +215,11 @@ Mount directory from host os on to container by adding flag below
 -v <directory-from-host-os>:<directory inside container>
 ````
 
+<h4>Optimize docker image<h4>
+
+It is vital to keep the image built least sufficient enough to launch application. In real time large scale application the impact of optimizing an image plays a cruial role.
+<br>`.dockerignore` file is pretty much similar to .gitignore file which contains pattern to exclude files which aren't required on build.
+
 <h4>Docker handle failover mechanism</h4>
 
 flag helps to automatically restart container if at all crash/failure happens.
