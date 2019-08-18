@@ -1,0 +1,20 @@
+**/*.class
+
+# Package Files #
+**/*.jar
+**/*.war
+**/*.ear
+
+# Files #
+**/*.idea
+**/*.iml
+**/*.project
+**/*.log
+
+# Folders to avoid #
+**/.project  
+**/.classpath
+**/.settings/
+**/target/
+**/.metadata/
+**/bin

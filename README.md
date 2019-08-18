@@ -162,8 +162,8 @@ returns memory utilization, bandwidth, cpu usage and real time metrics.
 docker container stats
 ````
 execute another command inside a container.
--i – lets user to input command.
--t – to opt in for interactive terminal.
+`-i` – lets user to input command.
+`-t` – to opt in for interactive terminal.
 ````
 docker exec -it <container-id> <command>
 ````
