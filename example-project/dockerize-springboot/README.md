@@ -17,13 +17,13 @@ From root directory of the project
 ````
 mvn clean install
 ````
-<br>2. Build docker image
+2. Build docker image
 ````
 docker build -t myapp:1.0 .
 ````
-<br>3. Deploy image on to docker container
+3. Deploy image on to docker container
 ````
 docker run -d -p 8080:8080 myapp:1.0
 ````
-<br>4. Validate from browser
-<br>launch `http:localhost:8080/` then you should be able to see message `Welcome To Dockerized SpringBoot Application!`
+4. Validate from browser<br>
+Launch `http:localhost:8080/` then you should be able to see message `Welcome To Dockerized SpringBoot Application!`
