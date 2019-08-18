@@ -25,5 +25,6 @@ docker build -t myapp:1.0 .
 ````
 docker run -d -p 8080:8080 myapp:1.0
 ````
-4. Validate from browser<br>
-Launch `http:localhost:8080/` then you should be able to see message `Welcome To Dockerized SpringBoot Application!`
+4. Validate<br>
+Launch `http:localhost:8080/` or run curl command `curl -v http://localhost:8080/` in terminal,then you should be able to see message `Welcome To Dockerized SpringBoot Application!`
+
