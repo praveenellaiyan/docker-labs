@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+
+   mywebappservice:
+     depends_on:
+      - mysqldbservice
+     build:
+        context: .
+     container_name: mywebappcontainer
+     ports:
+     - 8081:8081
+     restart: always
+     networks: 
+     - mycontainernetwork
+       
+   mysqldbservice:
+     build:
+        context: ./mysql
+     container_name: mydbcontainer
+     restart: always
+     networks:
+     - mycontainernetwork  
+       
+networks:
+   mycontainernetwork:
