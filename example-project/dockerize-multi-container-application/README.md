@@ -22,6 +22,5 @@ docker-compose build
 docker-compose up
 
 3. Validate<br>
-Launch `http:localhost:8080/health` or run curl command `curl -v http://localhost:8080/health` in terminal,then you should be able to see message `All Good!`
-
+Launch `http:localhost:8080/health` or run curl command `curl -v http://localhost:8080/health` in terminal,then you should be able to see message `All Good!`<br>
 Launch `http:localhost:8080/all` or run curl command `curl -v http://localhost:8080/all` in terminal,then you should be able to see `Customer Information`.
